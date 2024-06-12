@@ -1,0 +1,18 @@
+{
+    "$schema": "http://json.schemastore.org/template",
+    "author": "Vantroy E. Sanchez P.",
+    "classifications": [
+        "Web",
+        "WebAPI"
+    ],
+    "identity": "WebAPI.Simple",
+    "name": "VS WebAPI Simple",
+    "description": "This is a basic template of a WebAPI.",
+    "shortName": "webapi-simple",
+    "sourceName": "Gold",
+    "tags": {
+        "language": "C#",
+        "type": "project"
+    },
+    "preferNameDirectory": true
+}
