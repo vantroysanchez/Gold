@@ -1,4 +1,6 @@
-﻿using Gold.Interfaces;
+﻿using Gold.Common.Models;
+using Gold.Dtos;
+using Gold.Interfaces;
 using Gold.Models;
 using Microsoft.AspNetCore.Mvc;
 
@@ -14,6 +16,11 @@ namespace Gold.Controllers
         }
 
         [HttpGet("GetAll")]
-        public async Task<IEnumerable<ContactType>> GetAll() => await _contactTypeService.GetAll();        
+        public async Task<IEnumerable<ContactTypeDto>> GetAll() => await _contactTypeService.GetAll();
+
+        [HttpGet("GetAllWithPagination")]
+        public async Task<ActionResult<PaginatedList<ContactType>>> GetAllPaginated([FromQuery] PaginationParameters pagination) 
+            => await _contactTypeService.GetAllPaginated(pagination);
+
     }
 }

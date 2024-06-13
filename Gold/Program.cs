@@ -1,4 +1,6 @@
 
+using System.Reflection;
+
 namespace Gold
 {
     public class Program
@@ -6,6 +8,8 @@ namespace Gold
         public static void Main(string[] args)
         {
             var builder = WebApplication.CreateBuilder(args);
+
+            builder.Services.AddAutoMapper(Assembly.GetExecutingAssembly());
 
             // Add services to the container.
             builder.Services.AddDIServices(builder.Configuration);
@@ -26,8 +30,13 @@ namespace Gold
 
             app.UseHttpsRedirection();
 
-            app.UseAuthorization();
+            app.UseStaticFiles();
 
+            app.UseRouting();
+
+            app.UseCors();
+
+            app.UseAuthorization();
 
             app.MapControllers();
 
